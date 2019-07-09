@@ -1,0 +1,6 @@
+1. History of computer network
+introduction of networks
+networking devices
+types of networks
+topologies in [packet tracer - tool to create topology]
+current trends in networking servers
