@@ -13,6 +13,7 @@ class Graph():
 		print ("Vertex \tDistance from Source \tPath")
 		for node in range(self.V): 
 			print (node, "\t", dist[node],"\t\t\t" ,path[node] )
+			# print (node, "\t", dist[node],"\t\t\t")
 
 	def minDistance(self, dist, sptSet): 
 		min = sys.maxsize
@@ -23,9 +24,8 @@ class Graph():
 		return min_index
 
 	def dijkstra(self, src): 
-		path = [[]] * self.V
+		path = [src]*self.V
 		dist = [sys.maxsize] * self.V 
-		print(path)
 		dist[src] = 0
 		sptSet = [False] * self.V 
 		for i in range(self.V): 
@@ -33,8 +33,7 @@ class Graph():
 			sptSet[u] = True
 			for v in range(self.V): 
 				if self.graph[u][v] > 0 and sptSet[v] == False and dist[v] > dist[u] + self.graph[u][v]:
-						# print(v)
-						# path[v]= append(u)
+						path[v] = str(path[u])+ "->"+ str(v) 
 						dist[v] = dist[u] + self.graph[u][v] 
 		self.printSolution(dist, path) 
 
